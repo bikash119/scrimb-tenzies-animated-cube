@@ -1,0 +1,238 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+.dice-container{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 2rem;
+}
+.die-3d-space {
+  width: 5rem;
+  height: 5rem;
+  perspective: 800px;
+}
+.die-3d-obj {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+.die-3d-obj-face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: .5rem;
+}
+
+.die-3d-obj-face-front {
+  /* background: red; */
+  transform: rotateY( 0deg ) translateZ(2.5rem);
+} 
+
+.die-3d-obj-face-back {
+  /* background: blue; */
+  transform: rotateY( 180deg ) translateZ(2.5rem);
+}
+.die-3d-obj-face-right {
+  /* background: green; */
+  transform: rotateY( 90deg ) translateZ(2.5rem);
+}
+.die-3d-obj-face-left {
+  /* background: brown; */
+  transform: rotateY( -90deg ) translateZ(2.5rem);
+}
+.die-3d-obj-face-top {
+  /* background: purple; */
+  transform: rotateX( 90deg ) translateZ(2.5rem);
+}
+.die-3d-obj-face-bottom {
+  /* background: orange; */
+  transform: rotateX( -90deg ) translateZ(2.5rem);
+}
+
+.die-3d-obj:hover {
+  animation: spinCube 8s 1 cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+.die-3d-obj-rolling {
+  animation: spinCube 8s 1 cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+
+@keyframes spinCube {
+  0% { transform: rotateX(  0deg) rotateY(  0deg)}
+  20% { transform: rotateX(  180deg) }
+  40% { transform: rotateY(  90deg)}
+  70% { transform: rotateY(  270deg)}
+  100% { transform: rotateX( 180deg) rotateY( 180deg) rotateZ(  180deg)}
+}
+
+.die-3d-obj-face-dips {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.die-3d-obj-face-dip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background-color: white
+}
+.die-3d-obj-face-dip p {
+  margin: 0;
+  padding: 0;
+}
+.one-one{
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  height: 100%;
+  width: 35%;
+}
+.two-one{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.two-two{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.three-one{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.three-two{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 80%;
+  width: 80%;
+}
+.three-three{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.four-one{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.four-two{
+  grid-column: 3/4;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.four-three{
+  grid-column: 1/2;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.four-four{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.five-one{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.five-two{
+  grid-column: 3/4;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.five-three{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 80%;
+  width: 80%;
+}
+.five-four{
+  grid-column: 1/2;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.five-five{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.six-one{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.six-two{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.six-three{
+  grid-column: 3/4;
+  grid-row: 1/2;
+  height: 80%;
+  width: 80%;
+}
+.six-four{
+  grid-column: 1/2;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.six-five{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
+.six-six{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  height: 80%;
+  width: 80%;
+}
