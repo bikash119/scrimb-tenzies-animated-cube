@@ -9,6 +9,7 @@ type Side = {
     sides:Side[],
     isHeld:boolean,
     colorScheme:string[],
+    selectedValue:number
   }
   type NoIDSide = Omit<Side,"id">
 

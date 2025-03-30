@@ -36,11 +36,13 @@ function App() {
     const values = randomDips()
     const colors = colorScheme()
     const allSides:Side[] = side_names.map((side_name,index) => prepareSide({side_name,color:colors[index],value:values[index]}))
-    return {id:nanoid(),sides:allSides,isHeld:false,colorScheme:colors}
+    return {id:nanoid(),sides:allSides,isHeld:false,colorScheme:colors,selectedValue:allSides.filter(side => side.side_name === "front")[0].value}
   }
 
   const [dice,setDice] = useState<DieType[]>(() => Array(10).fill(0).map(() => prepareDie()))
   const [rolling,setRolling] = useState(false)
+
+  const gameWon = dice.every(die => die.isHeld) && dice.every(die => die.selectedValue === dice[0].selectedValue)
   const gameOver = dice.every(die => die.isHeld)
 
   const rollDice = () => {
@@ -63,7 +65,8 @@ function App() {
     setDice(Array(10).fill(0).map(() => prepareDie()))
   }
   const holdDie = (id:string) => {
-    setDice(prevDice => prevDice.map(die => die.id === id? {...die,isHeld:!die.isHeld}:die))
+
+    setDice(prevDice => prevDice.map(die => die.id === id? {...die,isHeld:!die.isHeld,selectedValue:die.sides.filter(side => side.side_name === "front")[0].value}:die))
 
   }
   useEffect(() => {
@@ -86,7 +89,7 @@ function App() {
 
   return (
       <>
-        {gameOver && <Confetti />}
+        {gameWon && <Confetti />}
         <section className='game-container'>
           <h1>Tenzies</h1>
           <p className='game-description'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
