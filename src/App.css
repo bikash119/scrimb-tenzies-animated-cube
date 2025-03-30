@@ -58,35 +58,40 @@
 }
 
 .die-3d-obj-face-front {
-  /* background: red; */
   transform: rotateY( 0deg ) translateZ(2.5rem);
 } 
 
 .die-3d-obj-face-back {
-  /* background: blue; */
   transform: rotateY( 180deg ) translateZ(2.5rem);
 }
 .die-3d-obj-face-right {
-  /* background: green; */
   transform: rotateY( 90deg ) translateZ(2.5rem);
 }
 .die-3d-obj-face-left {
-  /* background: brown; */
   transform: rotateY( -90deg ) translateZ(2.5rem);
 }
 .die-3d-obj-face-top {
-  /* background: purple; */
   transform: rotateX( 90deg ) translateZ(2.5rem);
 }
 .die-3d-obj-face-bottom {
-  /* background: orange; */
   transform: rotateX( -90deg ) translateZ(2.5rem);
 }
 
+.die-3d-obj-held {
+  opacity: 0.5;
+}
 .die-3d-obj-rolling {
   animation: spinCube 8s 1 cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
+.roll-dice{
+  background-color: #5035ff;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;  
+  cursor: pointer;
+}
 
 @keyframes spinCube {
   0% { transform: rotateX(  0deg) rotateY(  0deg)}
