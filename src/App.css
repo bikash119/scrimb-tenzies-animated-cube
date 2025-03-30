@@ -22,6 +22,17 @@
   grid-template-columns: repeat(5,1fr);
   gap: 2rem;
 }
+.die{
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.die:focus{
+  outline: none;
+}
+
 .die-3d-space {
   width: 5rem;
   height: 5rem;
@@ -72,9 +83,6 @@
   transform: rotateX( -90deg ) translateZ(2.5rem);
 }
 
-.die-3d-obj:hover {
-  animation: spinCube 8s 1 cubic-bezier(0.45, 0.05, 0.55, 0.95);
-}
 .die-3d-obj-rolling {
   animation: spinCube 8s 1 cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
